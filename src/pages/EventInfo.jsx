@@ -1,0 +1,1 @@
+import {useOutletContext} from "react-router-dom"; export default function EventInfo(){const{event}=useOutletContext();return <div className="simple-box"><h2>About this event</h2><p>This event is organised for people who want to learn, share ideas and spend some useful time with others.</p><p><b>Registered people:</b> {event.attendees.length}</p></div>}

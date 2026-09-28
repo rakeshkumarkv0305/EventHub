@@ -1,0 +1,4 @@
+import {createContext,useContext,useEffect,useReducer} from "react"; import {defaultEvents} from "../data"; const EventContext=createContext();
+function reducer(events,action){switch(action.type){case"add":return[action.event,...events];case"delete":return events.filter(e=>e.id!==action.id);default:return events}}
+export function EventProvider({children}){const[events,dispatch]=useReducer(reducer,defaultEvents,initial=>{const saved=localStorage.getItem("events");return saved?JSON.parse(saved):initial});useEffect(()=>localStorage.setItem("events",JSON.stringify(events)),[events]);return <EventContext.Provider value={{events,addEvent:e=>dispatch({type:"add",event:e}),deleteEvent:id=>dispatch({type:"delete",id})}}>{children}</EventContext.Provider>}
+export function useEvents(){return useContext(EventContext)}

@@ -1,0 +1,1 @@
+import {configureStore,createSlice} from "@reduxjs/toolkit"; const favourites=createSlice({name:"favourites",initialState:[],reducers:{toggle(state,action){const i=state.indexOf(action.payload);if(i>=0)state.splice(i,1);else state.push(action.payload)}}}); export const{toggle}=favourites.actions; export const store=configureStore({reducer:{favourites:favourites.reducer}});

@@ -1,0 +1,1 @@
+import {useEffect,useState} from "react"; export default function useDebounce(value){const[result,setResult]=useState(value);useEffect(()=>{const t=setTimeout(()=>setResult(value),300);return()=>clearTimeout(t)},[value]);return result}

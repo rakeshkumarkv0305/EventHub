@@ -1,0 +1,1 @@
+import {useOutletContext} from "react-router-dom"; export default function Attendees(){const{event}=useOutletContext();return <div className="simple-box"><h2>People attending</h2><ul>{event.attendees.map(p=><li key={p}>{p}</li>)}</ul></div>}
